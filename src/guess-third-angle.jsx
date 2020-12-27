@@ -9,13 +9,15 @@ export default function GuessThirdAngle() {
 
   const [answer, setAnswer] = useState(0);
   const [result, setResult] = useState("");
+  const [playing, setPlaying] = useState(false);
 
   const handleSubmit = (e) => {
+    setPlaying(true);
     e.preventDefault();
     if (Number(answer) === third) {
-      setResult("Your Correct Answer is " + third);
+      setResult("Yayy!!! Your Answer is correct.");
     } else {
-      setResult("Incorrect Answer, The correct answer is " + third);
+      setResult("Try Again! The correct answer is " + third + ".");
     }
 
     setAnswer(0);
@@ -29,12 +31,42 @@ export default function GuessThirdAngle() {
   };
 
   return (
-    <div className="type-container">
-      <h2>Guess the third angle</h2>
-      <div className="list-of-angles">
-        <p>{first}</p>
-        <p>{second}</p>
-        <form onSubmit={handleSubmit}>
+    <div style={{ padding: "1rem 0" }}>
+      <h1 style={{ marginBottom: "1rem", textAlign: "center" }}>
+        Guess the third angle
+      </h1>
+      <div style={{ textAlign: "center" }}>
+        <p>
+          <span
+            style={{
+              margin: "0.3rem",
+              display: "inline-block",
+              fontSize: "1.2rem ",
+              fontWeight: "500",
+              background: "teal",
+              color: "#fff",
+              padding: "5px",
+            }}
+          >
+            First Value:
+            {first}
+          </span>
+          <span
+            style={{
+              margin: "0.3rem",
+              display: "inline-block",
+              fontSize: "1.2rem ",
+              fontWeight: "500",
+              background: "teal",
+              color: "#fff",
+              padding: "5px",
+            }}
+          >
+            Second Value:
+            {second}
+          </span>
+        </p>
+        <form style={{ marginTop: "1rem" }} onSubmit={handleSubmit}>
           <input
             value={answer}
             type="number"
@@ -43,9 +75,8 @@ export default function GuessThirdAngle() {
           <button>Check Answer</button>
         </form>
         <button onClick={handleClick}>Play Again</button>
+        {playing ? <h3 className="result">{result}</h3> : null}
       </div>
-
-      <h3>{result}</h3>
     </div>
   );
 }

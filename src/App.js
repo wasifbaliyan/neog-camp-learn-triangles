@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <Header setRoute={setRoute} />
-      <main>{element}</main>
+      <main className="main">{element}</main>
     </>
   );
 }

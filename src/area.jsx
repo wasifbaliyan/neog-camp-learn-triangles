@@ -5,17 +5,21 @@ export default function Area() {
   const [height, setHeight] = useState("");
 
   const [area, setArea] = useState(null);
+  const [playing, setPlaying] = useState(false);
 
   const handleSubmit = (e) => {
+    setPlaying(true);
     e.preventDefault();
     setArea((1 / 2) * base * height);
     setBase("");
     setHeight("");
   };
   return (
-    <div>
-      <h1>Calculate Area of Triangle by sides</h1>
-      <div>
+    <div style={{ padding: "1rem 0" }}>
+      <h1 style={{ marginBottom: "1rem", textAlign: "center" }}>
+        Calculate Area of Triangle
+      </h1>
+      <div style={{ textAlign: "center" }}>
         <form onSubmit={handleSubmit}>
           <input
             required
@@ -34,7 +38,11 @@ export default function Area() {
 
           <button>Check Area</button>
         </form>
-        <h1>{area}</h1>
+        {playing ? (
+          <h3 className="result">
+            The area was found to be {area} square unit.
+          </h3>
+        ) : null}
       </div>
     </div>
   );

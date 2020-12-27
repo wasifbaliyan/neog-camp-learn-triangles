@@ -9,9 +9,11 @@ export default function TypeOfTriangle() {
 
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState("");
+  const [playing, setPlaying] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setPlaying(true);
     if (
       (first === 0 || second === 0 || third === 0) &&
       answer === "not a triangle"
@@ -42,16 +44,60 @@ export default function TypeOfTriangle() {
     setFirst(randOne);
     setSecond(randTwo);
     setThird(180 - (randOne + randTwo));
+    setPlaying(false);
   };
 
   return (
-    <div className="type-container">
-      <h2>Check the Type Of Triangles</h2>
-      <div className="list-of-angles">
-        <p>{first}</p>
-        <p>{second}</p>
-        <p>{third}</p>
-        <form onSubmit={handleSubmit}>
+    <div style={{ padding: "1rem 0" }}>
+      <h1 style={{ marginBottom: "1rem", textAlign: "center" }}>
+        Check the Type Of Triangles
+      </h1>
+      <div style={{ textAlign: "center" }}>
+        <p>
+          <span
+            style={{
+              margin: "0.3rem",
+              display: "inline-block",
+              fontSize: "1.2rem ",
+              fontWeight: "500",
+              background: "teal",
+              color: "#fff",
+              padding: "5px",
+            }}
+          >
+            First Value:
+            {first}
+          </span>
+          <span
+            style={{
+              margin: "0.3rem",
+              display: "inline-block",
+              fontSize: "1.2rem ",
+              fontWeight: "500",
+              background: "teal",
+              color: "#fff",
+              padding: "5px",
+            }}
+          >
+            Second Value:
+            {second}
+          </span>
+          <span
+            style={{
+              margin: "0.3rem",
+              display: "inline-block",
+              fontSize: "1.2rem ",
+              fontWeight: "500",
+              background: "teal",
+              color: "#fff",
+              padding: "5px",
+            }}
+          >
+            Third Value:
+            {third}
+          </span>
+        </p>
+        <form style={{ marginTop: "1rem" }} onSubmit={handleSubmit}>
           <select
             required
             name="options"
@@ -66,9 +112,8 @@ export default function TypeOfTriangle() {
           <button>Check Answer</button>
         </form>
         <button onClick={handleClick}>Play Again</button>
+        {playing ? <h3 className="result">{result}</h3> : null}
       </div>
-
-      <h3>{result}</h3>
     </div>
   );
 }
