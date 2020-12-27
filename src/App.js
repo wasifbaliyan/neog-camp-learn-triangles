@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CheckByAngles from "./check-by-angles";
+import TypeOfTriangle from "./type-of-triangle";
+import GuessThirdAngle from "./guess-third-angle";
+import Hypotenuse from "./hypotenuse";
+import Area from "./area";
+import Header from "./header";
+import { useState } from "react";
+import SumOfAngles from "./sum-of-angles";
 
 function App() {
+  const [route, setRoute] = useState("area");
+  let element = <Area />;
+  if (route === "area") {
+    element = <Area />;
+  } else if (route === "hypotenuse") {
+    element = <Hypotenuse />;
+  } else if (route === "third") {
+    element = <GuessThirdAngle />;
+  } else if (route === "sum") {
+    element = <SumOfAngles />;
+  } else if (route === "angle") {
+    element = <TypeOfTriangle />;
+  } else if (route === "side") {
+    element = <CheckByAngles />;
+  } else {
+    element = <Area />;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header setRoute={setRoute} />
+      <main>{element}</main>
+    </>
   );
 }
 
