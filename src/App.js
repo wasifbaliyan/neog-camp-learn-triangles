@@ -7,6 +7,7 @@ import Area from "./area";
 import Header from "./header";
 import { useState } from "react";
 import SumOfAngles from "./sum-of-angles";
+import Footer from "./footer";
 
 function App() {
   const [route, setRoute] = useState("area");
@@ -29,7 +30,10 @@ function App() {
   return (
     <>
       <Header setRoute={setRoute} />
-      <main className="main">{element}</main>
+      <div className="container">
+        <main className="main">{element}</main>
+      </div>
+      <Footer />
     </>
   );
 }
