@@ -20,7 +20,7 @@
   cursor: pointer;
   color: teal;
   transition: all 0.3s;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .nav-item:hover {

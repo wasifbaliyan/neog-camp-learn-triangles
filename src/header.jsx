@@ -8,22 +8,22 @@ export default function Header({ setRoute }) {
       <nav className="navbar">
         <ul className="nav-list">
           <li onClick={() => handleClick("area")} className="nav-item">
-            Find AREA
+            Find Area
           </li>
           <li onClick={() => handleClick("hypotenuse")} className="nav-item">
-            Calculate HYPOTENUSE
+            Calculate Hypotenuse
           </li>
           <li onClick={() => handleClick("sum")} className="nav-item">
             Check if Triangle
           </li>
           <li onClick={() => handleClick("third")} className="nav-item">
-            FIND third ANGLE
+            Find third Angle
           </li>
           <li onClick={() => handleClick("angle")} className="nav-item">
-            check obtuse/right/acute
+            check if obtuse right acute
           </li>
           <li onClick={() => handleClick("side")} className="nav-item">
-            Check Equilateral/isoceles/scalene
+            Check if Equilateral isoceles scalene
           </li>
         </ul>
       </nav>

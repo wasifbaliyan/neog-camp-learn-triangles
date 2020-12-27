@@ -11,6 +11,9 @@
   flex-wrap: wrap;
   list-style: none;
 }
+.list-item {
+  margin: 0.5rem;
+}
 
 .list-link {
   color: #ccc;
