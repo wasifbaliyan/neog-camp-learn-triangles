@@ -28,6 +28,7 @@ export default function GuessThirdAngle() {
     setSecond(randTwo);
     setThird(180 - (randOne + randTwo));
     setAnswer(0);
+    setPlaying(false);
   };
 
   return (
