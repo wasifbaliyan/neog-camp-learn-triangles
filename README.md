@@ -1,4 +1,4 @@
-# Do you know triangles? Mark-14
+# Do you know triangles? Mark-12
 
 A ReactJS App to do the following:
 
