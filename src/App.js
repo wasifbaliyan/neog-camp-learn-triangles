@@ -1,41 +1,25 @@
+import React from "react";
+import Home from "./components/Home/Home";
+import Layout from "./components/Layout/Layout";
+import { Route, Switch } from "react-router";
+import AreaContainer from "./components/AreaContainer/AreaContainer";
+import Hypotenuse from "./components/Hypotenuse/Hypotenuse";
 import "./App.css";
-import CheckByAngles from "./check-by-angles";
-import TypeOfTriangle from "./type-of-triangle";
-import GuessThirdAngle from "./guess-third-angle";
-import Hypotenuse from "./hypotenuse";
-import Area from "./area";
-import Header from "./header";
-import { useState } from "react";
-import SumOfAngles from "./sum-of-angles";
-import Footer from "./footer";
+import IsTriangle from "./components/IsTriangle/IsTriangle";
+import Quiz from "./components/Quiz/Quiz";
 
-function App() {
-  const [route, setRoute] = useState("area");
-  let element = <Area />;
-  if (route === "area") {
-    element = <Area />;
-  } else if (route === "hypotenuse") {
-    element = <Hypotenuse />;
-  } else if (route === "third") {
-    element = <GuessThirdAngle />;
-  } else if (route === "sum") {
-    element = <SumOfAngles />;
-  } else if (route === "angle") {
-    element = <TypeOfTriangle />;
-  } else if (route === "side") {
-    element = <CheckByAngles />;
-  } else {
-    element = <Area />;
-  }
+export default function App() {
   return (
     <>
-      <Header setRoute={setRoute} />
-      <div className="container">
-        <main className="main">{element}</main>
-      </div>
-      <Footer />
+      <Layout>
+        <Switch>
+          <Route path="/hypotenuse" component={Hypotenuse} />
+          <Route path="/quiz" component={Quiz} />
+          <Route path="/find-area" component={AreaContainer} />
+          <Route path="/is-triangle" component={IsTriangle} />
+          <Route path="/" exact component={Home} />
+        </Switch>
+      </Layout>
     </>
   );
 }
-
-export default App;

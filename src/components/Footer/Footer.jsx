@@ -1,4 +1,4 @@
-import "./footer.css";
+import "./Footer.css";
 export default function Footer() {
   return (
     <footer className="footer">
@@ -29,7 +29,9 @@ export default function Footer() {
           </a>
         </li>
       </ul>
-      <div className="footer-text">&copy;wasifbaliyan 2020</div>
+      <div className="footer-text">
+        &copy;wasifbaliyan {new Date().getFullYear()}{" "}
+      </div>
     </footer>
   );
 }
